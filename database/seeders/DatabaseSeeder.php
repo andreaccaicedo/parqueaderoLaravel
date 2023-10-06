@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(\Database\Seeders\EstadoSeeder::class);
-        
+        $this->call(\Database\Seeders\TipoUsuarioSeeder::class);
     }
 }

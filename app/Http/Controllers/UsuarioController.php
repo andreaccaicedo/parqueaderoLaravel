@@ -15,7 +15,10 @@ class UsuarioController extends Controller
     public function index()
     {
         //
+        $usuarios = Usuario::paginate(5);
+        return view('usuarios.index',compact('usuarios'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -23,6 +26,7 @@ class UsuarioController extends Controller
     public function create()
     {
         //
+        return view('usuarios.create');
     }
 
     /**
@@ -31,6 +35,14 @@ class UsuarioController extends Controller
     public function store(StoreUsuarioRequest $request)
     {
         //
+        $usuario = new Usuario();
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->telefono = $request->telefono;
+        $usuario->tipo_usuario_id = $request->tipo_usuario_id;
+        $usuario->save();
+        return redirect()->route('usuarios.index',$usuario);
+        
     }
 
     /**
@@ -39,6 +51,8 @@ class UsuarioController extends Controller
     public function show(Usuario $usuario)
     {
         //
+        return view('usuarios.show',compact('usuario'));
+    
     }
 
     /**
@@ -47,6 +61,7 @@ class UsuarioController extends Controller
     public function edit(Usuario $usuario)
     {
         //
+        return view('usuarios.edit',compact('usuario')); 
     }
 
     /**
@@ -55,6 +70,13 @@ class UsuarioController extends Controller
     public function update(UpdateUsuarioRequest $request, Usuario $usuario)
     {
         //
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->telefono = $request->telefono;
+        $usuario->tipo_usuario_id = $request->tipo_usuario_id;
+        $usuario->save();
+        return redirect()->route('usuarios.index',$usuario);
+        
     }
 
     /**
@@ -63,5 +85,7 @@ class UsuarioController extends Controller
     public function destroy(Usuario $usuario)
     {
         //
-    }
+        $usuario->delete();
+        return Redirect()->route('usuarios.index')->with('success','Usuario eliminado');  
+      }
 }
