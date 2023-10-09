@@ -16,13 +16,13 @@ class Vehiculo extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usiario::class);
+        return $this->belongsTo(Usuario::class);
         
     }
 
     public function marca()
     {
-        return $this->belongsTo(TMarca::class);
+        return $this->belongsTo(Marca::class);
         
     }
 }

@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Marca extends Model
 {
     use HasFactory;
-    public function tipo_vehiculos()
+    public function tiposVehiculo()
     {
-        return $this->belongsToMany(TipoVehiculo::class)->withTimestamps();
+        return $this->belongsToMany(TipoVehiculo::class, 'marca_tipo_vehiculo', 'marca_id', 'tipo_vehiculo_id')->withTimestamps();
     }
 }

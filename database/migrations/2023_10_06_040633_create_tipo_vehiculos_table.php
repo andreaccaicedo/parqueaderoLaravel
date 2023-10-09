@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tipo_vehiculos', function (Blueprint $table) {
             $table->bigIncrements('idTipoVehiculo');
             $table->string('tipoVehiculo',45);
+            //Valor por hora vehículo?
             $table->timestamps();
 
         });

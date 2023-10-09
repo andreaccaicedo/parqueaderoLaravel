@@ -13,7 +13,7 @@ class Usuario extends Model
 
     public function tipoUsuario()
     {
-        return $this->belongsTo(TipoUsiario::class);
+        return $this->belongsTo(TipoUsuario::class);
         
     }
 

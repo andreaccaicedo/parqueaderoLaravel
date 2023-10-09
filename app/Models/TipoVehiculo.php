@@ -12,6 +12,6 @@ class TipoVehiculo extends Model
     protected $primaryKey='idTipoVehiculo';
     public function marcas()
     {
-        return $this->belongsToMany(Marca::class)->withTimestamps();
+        return $this->belongsToMany(Marca::class, 'marca_tipo_vehiculo', 'tipo_vehiculo_id', 'marca_id')->withTimestamps();
     }
 }
