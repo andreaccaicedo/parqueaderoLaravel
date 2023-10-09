@@ -16,8 +16,8 @@
         Teléfono: <input type="text" name="telefono" value="{{ $usuario->telefono }}"><br>
         <label for="tipo_usuario_id">Escoja un tipo de usuario:</label>
         <select id="tipo_usuario_id" name="tipo_usuario_id">
-            <option value="0" @if ($usuario->tipo_usuario_id == 0) selected @endif>Universidad Mariana</option>
-            <option value="1" @if ($usuario->tipo_usuario_id == 1) selected @endif>Particular</option>
+            <option value="1" @if ($usuario->tipo_usuario_id == 0) selected @endif>Universidad Mariana</option>
+            <option value="2" @if ($usuario->tipo_usuario_id == 1) selected @endif>Particular</option>
         </select>        
         <br>                   
         <input type="submit" value="Modificar usuario">

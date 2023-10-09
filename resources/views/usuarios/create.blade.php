@@ -23,8 +23,8 @@
                     Teléfono: <input type="text" name="telefono" class="form-control" required><br>
                     <label for="tipo_usuario_id">Escoja un tipo de usuario:</label>
                     <select id="tipo_usuario_id" name="tipo_usuario_id">
-                        <option value="0">Universidad Mariana</option>
-                        <option value="1">Particular  </option>
+                        <option value="1">Universidad Mariana</option>
+                        <option value="2">Particular  </option>
                     </select>
                     <br>
                     <input type="submit" value="Agregar usuario" class="btn btn-success btn-block">

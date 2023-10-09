@@ -9,6 +9,8 @@ class Usuario extends Model
 {
     use HasFactory;
 
+    protected $primaryKey='idUsuario';
+
     public function tipoUsuario()
     {
         return $this->belongsTo(TipoUsiario::class);

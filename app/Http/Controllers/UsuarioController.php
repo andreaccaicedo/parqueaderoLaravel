@@ -42,7 +42,7 @@ class UsuarioController extends Controller
         $usuario->tipo_usuario_id = $request->tipo_usuario_id;
         $usuario->save();
         return redirect()->route('usuarios.index',$usuario);
-        
+
     }
 
     /**
