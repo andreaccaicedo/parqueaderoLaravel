@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card card-body">    
-    <h1>Pagina principal de usuarios</h1>
+    <h1>Página principal de usuarios</h1>
 
     <table class="table">
         <thead>
