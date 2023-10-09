@@ -9,6 +9,7 @@ class TipoVehiculo extends Model
 {
     use HasFactory;
 
+    protected $primaryKey='idTipoVehiculo';
     public function marcas()
     {
         return $this->belongsToMany(Marca::class)->withTimestamps();
