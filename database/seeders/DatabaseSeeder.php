@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call(\Database\Seeders\EstadoSeeder::class);
         $this->call(\Database\Seeders\TipoUsuarioSeeder::class);
         $this->call(\Database\Seeders\TipoVehiculoSeeder::class);
-
-        Marca::factory(50)->create();
+        
+        $this->call(\Database\Seeders\MarcaSeeder::class);
+        //Marca::factory(50)->create();
     }
 }

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('marcas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('marca',45);
+            $table->string('name',45);
+            //$table->string('code',45);
             $table->timestamps();
 
         });
