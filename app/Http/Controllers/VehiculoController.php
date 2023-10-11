@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehiculo;
+use App\Models\TipoVehiculo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVehiculoRequest;
 use App\Http\Requests\UpdateVehiculoRequest;
@@ -16,8 +17,17 @@ class VehiculoController extends Controller
     {
          //
          $vehiculos = Vehiculo::paginate(5);
-         return view('vehiculos.index',compact('vehiculos'));
-    }
+         //Original:   return view('vehiculos.index',compact('vehiculos'));
+         
+    // Obtener las marcas de carros y motos a través de las relaciones
+    $tipoCarro = TipoVehiculo::where('tipoVehiculo', 'Carro')->first();
+    $tipoMoto = TipoVehiculo::where('tipoVehiculo', 'Moto')->first();
+
+    $marcasCarro = $tipoCarro->marcas;
+    $marcasMoto = $tipoMoto->marcas;
+
+    return view('vehiculos.index', compact('vehiculos','marcasCarro', 'marcasMoto'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +35,17 @@ class VehiculoController extends Controller
     public function create()
     {
          //
-         return view('vehiculos.create');
+         //Original: return view('vehiculos.create');
+
+    // Obtener las marcas de carros a través de la relación con el tipo de vehículo
+
+    $tipoCarro = TipoVehiculo::where('tipoVehiculo', 'Carro')->first();
+    $tipoMoto = TipoVehiculo::where('tipoVehiculo', 'Moto')->first();
+
+    $marcasCarro = $tipoCarro->marcas;
+    $marcasMoto = $tipoMoto->marcas;
+
+    return view('vehiculos.create', compact('marcasCarro', 'marcasMoto'));
     }
 
     /**
