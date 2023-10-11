@@ -9,6 +9,8 @@ class Vehiculo extends Model
 {
     use HasFactory;
 
+    protected $primaryKey='idVehiculo';
+    
     public function estado()
     {
         return $this->belongsTo(Estado::class);
@@ -23,6 +25,12 @@ class Vehiculo extends Model
     public function marca()
     {
         return $this->belongsTo(Marca::class);
+        
+    }
+
+    public function factura()
+    {
+        return $this->belongsTo(Factura::class);
         
     }
 }

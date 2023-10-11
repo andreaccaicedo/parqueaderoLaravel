@@ -14,7 +14,9 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        //
+         //
+         $vehiculos = Vehiculo::paginate(5);
+         return view('vehiculos.index',compact('vehiculos'));
     }
 
     /**
@@ -22,7 +24,8 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        //
+         //
+         return view('vehiculos.create');
     }
 
     /**
@@ -31,6 +34,15 @@ class VehiculoController extends Controller
     public function store(StoreVehiculoRequest $request)
     {
         //
+        $vehiculo = new Vehiculo();
+        $vehiculo->estado_id = $request->estado_id;
+        $vehiculo->marca_id = $request->marca_id;
+        $vehiculo->usuario_id = $request->usuario_id;
+        $vehiculo->placa = $request->placa;
+        $vehiculo->observaciones = $request->observaciones;
+        $vehiculo->save();
+        return redirect()->route('vehiculos.index',$vehiculo);
+
     }
 
     /**
@@ -38,7 +50,8 @@ class VehiculoController extends Controller
      */
     public function show(Vehiculo $vehiculo)
     {
-        //
+         //
+         return view('vehiculos.show',compact('vehiculo'));
     }
 
     /**
@@ -47,6 +60,7 @@ class VehiculoController extends Controller
     public function edit(Vehiculo $vehiculo)
     {
         //
+        return view('vehiculos.edit',compact('vehiculo')); 
     }
 
     /**
@@ -54,7 +68,14 @@ class VehiculoController extends Controller
      */
     public function update(UpdateVehiculoRequest $request, Vehiculo $vehiculo)
     {
-        //
+         //
+         $vehiculo->estado_id = $request->estado_id;
+         $vehiculo->marca_id = $request->marca_id;
+         $vehiculo->usuario_id = $request->usuario_id;
+         $vehiculo->placa = $request->placa;
+         $vehiculo->observaciones = $request->observaciones;
+         $vehiculo->save();
+         return redirect()->route('vehiculos.index',$vehiculo);
     }
 
     /**
@@ -63,5 +84,7 @@ class VehiculoController extends Controller
     public function destroy(Vehiculo $vehiculo)
     {
         //
+        $vehiculo->delete();
+        return Redirect()->route('vehiculos.index')->with('success','Vehículo eliminado');  
     }
 }

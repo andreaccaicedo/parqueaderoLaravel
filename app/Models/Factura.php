@@ -11,7 +11,7 @@ class Factura extends Model
 
     public function vehiculo()
     {
-        return $this->hasOne(Vehiculo::class);
+        return $this->HasOne(Vehiculo::class);
     }
     
 }

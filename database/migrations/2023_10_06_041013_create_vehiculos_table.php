@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vehiculos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('idVehiculo');
 
-            $table->unsignedBigInteger('factura_id');
             $table->unsignedBigInteger('estado_id')->nullable();
             $table->unsignedBigInteger('marca_id');
             $table->unsignedBigInteger('usuario_id');
@@ -23,10 +22,6 @@ return new class extends Migration
             $table->string('observaciones',45);
             $table->timestamps();
             
-
-            $table->foreign('factura_id')->references('id')->on('facturas')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
 
             $table->foreign('estado_id')->references('id')->on('estados')
             ->onDelete('cascade')
