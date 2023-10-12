@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehiculo;
 use App\Models\TipoVehiculo;
+use App\Models\Marca;
+use App\Models\Usuario;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVehiculoRequest;
 use App\Http\Requests\UpdateVehiculoRequest;
@@ -16,7 +19,15 @@ class VehiculoController extends Controller
     public function index()
     {
          //
-         $vehiculos = Vehiculo::paginate(5);
+         //$vehiculos = Vehiculo::paginate(5);
+         $vehiculos = Vehiculo::with('estado')->paginate(5);
+
+         //marcas para ver en index
+         $marcas = Marca::paginate(5);
+
+         //usuarios para ver en index
+         $usuarios = Usuario::paginate(5);
+
          //Original:   return view('vehiculos.index',compact('vehiculos'));
          
     // Obtener las marcas de carros y motos a través de las relaciones
@@ -26,7 +37,7 @@ class VehiculoController extends Controller
     $marcasCarro = $tipoCarro->marcas;
     $marcasMoto = $tipoMoto->marcas;
 
-    return view('vehiculos.index', compact('vehiculos','marcasCarro', 'marcasMoto'));
+    return view('vehiculos.index', compact('vehiculos', 'marcasCarro', 'marcasMoto'));
 }
 
     /**
@@ -45,7 +56,13 @@ class VehiculoController extends Controller
     $marcasCarro = $tipoCarro->marcas;
     $marcasMoto = $tipoMoto->marcas;
 
-    return view('vehiculos.create', compact('marcasCarro', 'marcasMoto'));
+     // Obtener la lista de usuarios como un array asociativo de idUsuario => nombre + apellido
+     $usuarios = Usuario::all()->pluck('nombre', 'idUsuario')->map(function ($nombre, $idUsuario) {
+        $usuario = Usuario::find($idUsuario); // Obtener el modelo de usuario
+        return $nombre . ' ' . $usuario->apellido;
+    });
+
+    return view('vehiculos.create', compact('marcasCarro', 'marcasMoto', 'usuarios'));
     }
 
     /**

@@ -20,7 +20,7 @@
                     @csrf
                     
                     <label for="estado_id">Seleccione el estado del vehículo:</label>
-                    <select id="estado_id" name="estado_id">
+                    <select id="estado_id" name="estado_id" class="form-select" data-toggle="select">
                         <option value="1">Excelente</option>
                         <option value="2">Regular  </option>
                         <option value="3">Malo  </option>
@@ -29,14 +29,14 @@
 
                     <!--Selección tipo de vehículo-->
                     <label for="tipo_vehiculo_id">Seleccione el tipo de vehículo:</label>
-                    <select id="tipo_vehiculo_id" name="tipo_vehiculo_id">
+                    <select id="tipo_vehiculo_id" name="tipo_vehiculo_id" class="form-select" data-toggle="select">
                         <option value="1">Carro</option>
                         <option value="2">Moto</option>
                     </select>
                     <br>
 
                     <label for="marca_id">Seleccione la marca del vehículo:</label>
-                    <select id="marca_id" name="marca_id">
+                    <select id="marca_id" name="marca_id" class="form-select" data-toggle="select">
                         <!-- Las opciones se llenarán dinámicamente a través de JavaScript -->
                     </select>
                     <br>
@@ -44,8 +44,15 @@
                     <!--Cambiar a selección/búsqueda
                     Marca:  <input type="text" name="marca_id" class="form-control"  required><br>-->
 
-                    <!--Cambiar a selección/búsqueda-->
-                    Usuario:  <input type="text" name="usuario_id" class="form-control"  required><br>
+                    <label for="usuario_id">Seleccione el usuario:</label>
+                    <select id="usuario_id" name="usuario_id" class="form-select" data-toggle="select">
+                        @foreach ($usuarios as $idUsuario => $nombreCompleto)
+                            <option value="{{ $idUsuario }}">{{ $nombreCompleto }}</option>
+                        @endforeach
+                    </select>
+                    <br>
+                    <!--Cambiar a selección/búsqueda
+                    Usuario:  <input type="text" name="usuario_id" class="form-control"  required><br>-->
 
                     Placa:  <input type="text" name="placa" class="form-control"  required><br>
 

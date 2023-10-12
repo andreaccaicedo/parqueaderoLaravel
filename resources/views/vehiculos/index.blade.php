@@ -33,9 +33,9 @@
             @foreach ($vehiculos as $v) 
             <tr>
                 <th scope="row">{{ $v->idVehiculo }}</th>
-                <td>{{ $v->estado_id }}</td>
-                <td>{{ $v->marca_id }}</td>
-                <td>{{ $v->usuario_id }}</td>
+                <td>{{ $v->estado->estado }}</td>
+                <td>{{ $v->marca->name }}</td>
+                <td>{{ $v->usuario->nombre . ' ' . $v->usuario->apellido }}</td>
                 <td>{{ $v->placa }}</td>
                 <td>{{ $v->observaciones }}</td>
                 <td>

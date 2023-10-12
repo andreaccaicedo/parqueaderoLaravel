@@ -67,3 +67,13 @@ Route::put('vehiculos/{vehiculo}',[VehiculoController::class,'update'])->name('v
 // se crea una ruta para eliminar los datos del vehiculo
 Route::delete('vehiculos/{vehiculo}',[VehiculoController::class,'destroy'])->name('vehiculos.destroy');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');

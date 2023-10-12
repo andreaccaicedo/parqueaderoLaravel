@@ -10,7 +10,7 @@ class Vehiculo extends Model
     use HasFactory;
 
     protected $primaryKey='idVehiculo';
-    
+
     public function estado()
     {
         return $this->belongsTo(Estado::class);
@@ -18,7 +18,7 @@ class Vehiculo extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(Usuario::class, 'usuario_id');
         
     }
 

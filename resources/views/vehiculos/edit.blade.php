@@ -31,6 +31,6 @@
         <input type="submit" value="Modificar vehículo">
     </form>
     <br>
-    <a href="{{ route('usuarios.index') }}">Regresar a usuarios</a>
+    <a href="{{ route('vehiculos.index') }}">Regresar a vehiculos</a>
 </body>
 </html>
