@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Parqueadero',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -314,6 +314,19 @@ return [
         [
             'text'        => 'pages',
             'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Usuarios',
+            'url'         => 'usuarios',
+            'icon'        => 'fa-solid fa-users',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Vehículos',
+            'url'         => 'vehiculos',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',

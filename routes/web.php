@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VehiculoController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,7 +24,7 @@ Route::get('/', function () {
 //Usuarios//
 
 // se crea una ruta para acceder al index de usuarios
-Route::get('usuarios',[UsuarioController::class,'index'])->name('usuarios.index');
+Route::get('usuarios',[UsuarioController::class,'index'])->name('usuarios.index')->middleware('auth');
 
 // se crea una ruta para acceder al formulario
 Route::get('usuarios/create',[UsuarioController::class,'create'])->name('usuarios.create');
@@ -67,7 +68,7 @@ Route::put('vehiculos/{vehiculo}',[VehiculoController::class,'update'])->name('v
 // se crea una ruta para eliminar los datos del vehiculo
 Route::delete('vehiculos/{vehiculo}',[VehiculoController::class,'destroy'])->name('vehiculos.destroy');
 
-
+//Revisar AdminLTE
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

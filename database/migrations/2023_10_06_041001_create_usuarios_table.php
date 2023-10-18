@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->bigIncrements('idUsuario');
+            //Pensar en cédula
             $table->string('nombre',50);
             $table->string('apellido',50);
             $table->string('telefono',20);

@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Agregar Vehículo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+
 </head>
 <body>
 
@@ -37,19 +45,21 @@
 
                     <label for="marca_id">Seleccione la marca del vehículo:</label>
                     <select id="marca_id" name="marca_id" class="form-select" data-toggle="select">
-                        <!-- Las opciones se llenarán dinámicamente a través de JavaScript -->
+                        <!-- Las opciones se llenarán dinámicamente a través de JavaScript con la función fillMarcaSelect()-->
                     </select>
                     <br>
 
                     <!--Cambiar a selección/búsqueda
                     Marca:  <input type="text" name="marca_id" class="form-control"  required><br>-->
-
+                
                     <label for="usuario_id">Seleccione el usuario:</label>
-                    <select id="usuario_id" name="usuario_id" class="form-select" data-toggle="select">
+                    <select id="usuario_id" name="usuario_id" class="form-select select2" data-live-search="true">
+                        <option selected>-</option>
                         @foreach ($usuarios as $idUsuario => $nombreCompleto)
                             <option value="{{ $idUsuario }}">{{ $nombreCompleto }}</option>
                         @endforeach
                     </select>
+                    <br>
                     <br>
                     <!--Cambiar a selección/búsqueda
                     Usuario:  <input type="text" name="usuario_id" class="form-control"  required><br>-->
@@ -110,13 +120,12 @@
         fillMarcaSelect();
     });
 </script>
-
-
-
-    
-    
-        
-
+      
+<script>
+$(document).ready(function() {
+    $('#usuario_id').select2();
+});
+</script>
 
 </body>
 </html>
