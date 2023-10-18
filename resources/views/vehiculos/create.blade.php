@@ -16,6 +16,9 @@
 
 </head>
 <body>
+    @extends('adminlte::page')
+    @section('parqueadero', 'AdminLTE')    
+    @section('content')
 
 <div class="container p-4">
     <div class="row">
@@ -73,16 +76,19 @@
                 </form>
             </div>
             <div class="card card-body">
-                <a href="{{ route('vehiculos.index') }}">Regresar a vehículos</a>
+                
+
             </div>
         </div>
     </div>
+    <a class="btn btn-outline-secondary" href="{{ route('vehiculos.index') }}" role="button">Regresar a vehículos</a>
+
 </div>
 
     <br>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+    @stop
 
     
 <!--Script Javascript selección de marcas-->

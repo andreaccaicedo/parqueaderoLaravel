@@ -48,7 +48,7 @@ Route::delete('usuarios/{usuario}',[UsuarioController::class,'destroy'])->name('
 //Vehículos//
 
 // se crea una ruta para acceder al index de vehículos
-Route::get('vehiculos',[VehiculoController::class,'index'])->name('vehiculos.index');
+Route::get('vehiculos',[VehiculoController::class,'index'])->name('vehiculos.index')->middleware('auth');
 
 // se crea una ruta para acceder al formulario
 Route::get('vehiculos/create',[VehiculoController::class,'create'])->name('vehiculos.create');

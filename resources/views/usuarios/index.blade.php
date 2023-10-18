@@ -42,12 +42,13 @@
                 <td>{{ $u->nombre }}</td>
                 <td>{{ $u->apellido }}</td>
                 <td>{{ $u->telefono }}</td>
-                <td>{{ $u->tipo_usuario_id }}</td>
+                <td>{{ $u->tipoUsuario->tipoUsuario}}</td>
+
                 <td>
                     <a href="{{ route('usuarios.show',$u->idUsuario)}}" class="btn btn-success"><i class="fa fa-eye"></i></a> 
                     <a href="{{ route('usuarios.edit',$u->idUsuario) }}" class="btn btn-secondary"><i class="fa fa-marker"></i></a> 
                     <form method="POST" action="{{ route('usuarios.destroy',$u->idUsuario)}}"
-                        onsubmit="return confirm('Esta seguro de borrar este usuario?');"
+                        onsubmit="return confirm('¿Está seguro de borrar este usuario?');"
                         style="display: inline-block">
                         @csrf 
                         @method('delete')         

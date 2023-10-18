@@ -10,6 +10,9 @@
     <script src="https://kit.fontawesome.com/424ce1386e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    @extends('adminlte::page')
+    @section('parqueadero', 'AdminLTE')    
+    @section('content')
 <div class="container p-8">
     <div class="row">
         <div class="col-md-8">
@@ -43,7 +46,7 @@
                     <a href="{{ route('vehiculos.show',$v->idVehiculo)}}" class="btn btn-success"><i class="fa fa-eye"></i></a> 
                     <a href="{{ route('vehiculos.edit',$v->idVehiculo) }}" class="btn btn-secondary"><i class="fa fa-marker"></i></a> 
                     <form method="POST" action="{{ route('vehiculos.destroy',$v->idVehiculo)}}"
-                        onsubmit="return confirm('Esta seguro de borrar este vehículo?');"
+                        onsubmit="return confirm('¿Está seguro de borrar este vehículo?');"
                         style="display: inline-block">
                         @csrf 
                         @method('delete')         
@@ -65,5 +68,6 @@
 </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    @stop
 </body>
 </html>
