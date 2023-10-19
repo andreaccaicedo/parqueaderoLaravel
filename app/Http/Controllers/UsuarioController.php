@@ -6,6 +6,8 @@ use App\Models\Usuario;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUsuarioRequest;
 use App\Http\Requests\UpdateUsuarioRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class UsuarioController extends Controller
 {
@@ -40,6 +42,11 @@ class UsuarioController extends Controller
         $usuario->apellido = $request->apellido;
         $usuario->telefono = $request->telefono;
         $usuario->tipo_usuario_id = $request->tipo_usuario_id;
+
+        $request->validate([
+            'telefono' => 'required|numeric',
+        ]);
+
         $usuario->save();
         return redirect()->route('usuarios.index',$usuario);
 
@@ -74,6 +81,11 @@ class UsuarioController extends Controller
         $usuario->apellido = $request->apellido;
         $usuario->telefono = $request->telefono;
         $usuario->tipo_usuario_id = $request->tipo_usuario_id;
+
+        $request->validate([
+            'telefono' => 'required|numeric',
+        ]);
+
         $usuario->save();
         return redirect()->route('usuarios.index',$usuario);
         

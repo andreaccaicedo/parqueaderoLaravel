@@ -97,7 +97,22 @@ class VehiculoController extends Controller
     public function edit(Vehiculo $vehiculo)
     {
         //
-        return view('vehiculos.edit',compact('vehiculo')); 
+        //Original
+        //return view('vehiculos.edit',compact('vehiculo')); 
+
+        $tipoCarro = TipoVehiculo::where('tipoVehiculo', 'Carro')->first();
+    $tipoMoto = TipoVehiculo::where('tipoVehiculo', 'Moto')->first();
+
+    $marcasCarro = $tipoCarro->marcas;
+    $marcasMoto = $tipoMoto->marcas;
+
+     // Obtener la lista de usuarios como un array asociativo de idUsuario => nombre + apellido
+     $usuarios = Usuario::all()->pluck('nombre', 'idUsuario')->map(function ($nombre, $idUsuario) {
+        $usuario = Usuario::find($idUsuario); // Obtener el modelo de usuario
+        return $nombre . ' ' . $usuario->apellido;
+    });
+
+    return view('vehiculos.edit', compact('marcasCarro', 'marcasMoto', 'usuarios','vehiculo'));
     }
 
     /**

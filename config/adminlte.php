@@ -312,28 +312,29 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            /* 'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
-            'label_color' => 'success',
+            'label_color' => 'success', */
         ],
+        ['header' => 'Páginas'],
         [
             'text'        => 'Usuarios',
             'url'         => 'usuarios',
-            'icon'        => 'fa-solid fa-users',
+            'icon'        => 'far fa fa-users',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Vehículos',
             'url'         => 'vehiculos',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'icon'        => 'far fa fa-car',
+            /* 'label'       => 4, */
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        /* ['header' => 'Configuración'],
         [
-            'text' => 'profile',
+            'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -395,7 +396,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*
@@ -453,8 +454,9 @@ return [
                 ],
             ],
         ],
+        /** Active true para la búsqueda en las vistas */
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

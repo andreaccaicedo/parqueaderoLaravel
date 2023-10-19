@@ -13,5 +13,8 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.56.1",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "select2-bootstrap-theme": "^0.1.0-beta.10"
     }
 }
