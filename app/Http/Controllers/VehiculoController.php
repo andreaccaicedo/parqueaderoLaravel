@@ -60,6 +60,7 @@ class VehiculoController extends Controller
      $usuarios = Usuario::all()->pluck('nombre', 'idUsuario')->map(function ($nombre, $idUsuario) {
         $usuario = Usuario::find($idUsuario); // Obtener el modelo de usuario
         return $nombre . ' ' . $usuario->apellido;
+        //
     });
 
     return view('vehiculos.create', compact('marcasCarro', 'marcasMoto', 'usuarios'));
