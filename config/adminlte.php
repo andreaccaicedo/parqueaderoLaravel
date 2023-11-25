@@ -332,7 +332,23 @@ return [
             /* 'label'       => 4, */
             'label_color' => 'success',
         ],
+
+        [
+            'text'        => 'Facturas',
+            'url'         => 'facturas',
+            'icon'        => 'far fa fa-clipboard',
+            /* 'label'       => 4, */
+            'label_color' => 'success',
+        ],
+        ['header' => 'Reportes'],
+        [
+            'text'        => ' Reporte de Facturas',
+            'url'         => 'informe',
+            'icon'        => 'far fa fa-clipboard',
+            'label_color' => 'success',
+        ],
         /* ['header' => 'Configuración'],
+
         [
             'text' => 'Perfil',
             'url'  => 'admin/settings',

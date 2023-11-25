@@ -16,9 +16,13 @@ return new class extends Migration
 
             $table->unsignedBigInteger('vehiculo_id');
 
-            $table->string('horaEntrada',20);
-            $table->string('horaSalida',20);
-            $table->integer('valor');
+            /* $table->string('horaEntrada',20);
+            $table->string('horaSalida',20); */
+            $table->timestamp('horaEntrada');
+            $table->timestamp('horaSalida');
+            $table->integer('valorPorHora');
+            $table->integer('valorTotal');
+
             $table->timestamps();
 
             $table->foreign('vehiculo_id')->references('idVehiculo')->on('vehiculos')

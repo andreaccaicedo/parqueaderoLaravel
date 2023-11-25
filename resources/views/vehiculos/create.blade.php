@@ -80,7 +80,7 @@
                     <label for="observaciones">Escriba sus observaciones:</label>
                     <input type="text" name="observaciones" class="form-control" required><br>
                     
-                    <input type="submit" value="Agregar vehículo" class="btn btn-success btn-block">
+                    <input type="submit" value="Agregar vehículo" class="btn btn-success btn-block"> 
                 </form>
             </div>
             <div class="card card-body">

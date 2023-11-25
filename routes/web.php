@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\InformeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +69,45 @@ Route::put('vehiculos/{vehiculo}',[VehiculoController::class,'update'])->name('v
 
 // se crea una ruta para eliminar los datos del vehiculo
 Route::delete('vehiculos/{vehiculo}',[VehiculoController::class,'destroy'])->name('vehiculos.destroy');
+
+
+//facturas//
+
+// se crea una ruta para acceder al index de facturas
+Route::get('facturas',[FacturaController::class,'index'])->name('facturas.index')->middleware('auth');
+
+// se crea una ruta para acceder al formulario de facturas
+Route::get('facturas/create',[FacturaController::class,'create'])->name('facturas.create')->middleware('auth');
+
+// se crea para guardar la información de facturas 
+Route::post('facturas',[FacturaController::class,'store'])->name('facturas.store')->middleware('auth');
+
+// crear la ruta de visualizacion de una factura
+Route::get('facturas/{factura}',[FacturaController::class,'show'])->name('facturas.show')->middleware('auth');
+
+// se crea una ruta para editar el formulario de  una factura
+Route::get('facturas/{factura}/edit',[FacturaController::class,'edit'])->name('facturas.edit')->middleware('auth');
+
+// se crea una ruta para actualizar los datos de una factura
+Route::put('facturas/{factura}',[FacturaController::class,'update'])->name('facturas.update')->middleware('auth');// se crea una ruta para actualizar los datos de factura
+
+// se crea una ruta para eliminar los datos de una factura
+Route::delete('facturas/{factura}',[FacturaController::class,'destroy'])->name('facturas.destroy')->middleware('auth');
+
+
+//Informes
+// routes/web.php
+
+Route::get('informe',[InformeController::class,'mostrarFormulario'])->name('informe.mostrarFormulario');
+//Route::get('/informe-facturas', 'InformeController@mostrarFormulario')->name('informe.mostrarFormulario');
+Route::post('informe',[InformeController::class,'facturasPorDia'])->name('informe.facturasPorDia');
+//Route::post('/informe-facturas', 'InformeController@facturasPorDia')->name('informe.facturasPorDia');
+
+
+
+
+
+
 
 //Revisar AdminLTE
 Auth::routes();

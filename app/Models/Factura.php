@@ -9,9 +9,14 @@ class Factura extends Model
 {
     use HasFactory;
 
+    protected $primaryKey='id';
+
     public function vehiculo()
     {
-        return $this->HasOne(Vehiculo::class);
+        //return $this->HasOne(Vehiculo::class);
+        return $this->belongsTo(Vehiculo::class, 'vehiculo_id');
     }
+
+    
     
 }
